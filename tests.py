@@ -67,7 +67,7 @@ class TCPStatsdMetricCollectionTests(testing.AsyncHTTPTestCase):
         self.application = None
         self.namespace = 'testing'
 
-        super(TCPStatsdMetricCollectionTests, self).setUp()
+        super().setUp()
         self.statsd = FakeStatsdServer(self.io_loop, protocol='tcp')
 
         statsd.install(self.application, **{'namespace': self.namespace,
@@ -183,7 +183,7 @@ class TCPStatsdConfigurationTests(testing.AsyncHTTPTestCase):
         self.application = None
         self.namespace = 'testing'
 
-        super(TCPStatsdConfigurationTests, self).setUp()
+        super().setUp()
         self.statsd = FakeStatsdServer(self.io_loop, protocol='tcp')
 
         statsd.install(self.application, **{'namespace': self.namespace,
@@ -223,7 +223,7 @@ class UDPStatsdMetricCollectionTests(testing.AsyncHTTPTestCase):
         self.application = None
         self.namespace = 'testing'
 
-        super(UDPStatsdMetricCollectionTests, self).setUp()
+        super().setUp()
         self.statsd = FakeStatsdServer(self.io_loop, protocol='udp')
 
         statsd.install(self.application, **{'namespace': self.namespace,
@@ -234,7 +234,7 @@ class UDPStatsdMetricCollectionTests(testing.AsyncHTTPTestCase):
 
     def tearDown(self):
         self.statsd.close()
-        super(UDPStatsdMetricCollectionTests, self).tearDown()
+        super().tearDown()
 
     @patch.object(socket.socket, 'sendto')
     def test_expected_counters_data_written(self, mock_sock):
@@ -329,7 +329,7 @@ class UDPStatsdConfigurationTests(testing.AsyncHTTPTestCase):
         self.application = None
         self.namespace = 'testing'
 
-        super(UDPStatsdConfigurationTests, self).setUp()
+        super().setUp()
         self.statsd = FakeStatsdServer(self.io_loop, protocol='udp')
 
         statsd.install(self.application, **{'namespace': self.namespace,
@@ -340,7 +340,7 @@ class UDPStatsdConfigurationTests(testing.AsyncHTTPTestCase):
 
     def tearDown(self):
         self.statsd.close()
-        super(UDPStatsdConfigurationTests, self).tearDown()
+        super().tearDown()
 
     def test_that_http_method_call_is_recorded(self):
         response = self.fetch('/')
